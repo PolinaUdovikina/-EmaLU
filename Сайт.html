@@ -1,0 +1,235 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmaLU</title>
+    <link rel="icon" href="лого 1.png" type="image/png">
+    <link rel="stylesheet" href="Сайт.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">EmaLU</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Главная</a></li>
+                    <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#" id="navProfileLink">Личный кабинет</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" id="cartIcon">
+                🛒 <span id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1>Роскошь, воплощенная в металле</h1>
+            <p>Откройте для себя эксклюзивные ювелирные украшения</p>
+            <a href="#catalog" class="cta-button">Смотреть каталог</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="catalog">
+            <h2>Наш Каталог</h2>
+            <div class="product-grid" id="productGrid">
+                <!-- Карточки товаров будут вставлены сюда JS -->
+            </div>
+        </section>
+
+        <section id="about">
+             <h2>О Нас</h2>
+             <p>Леонардо да Винчи писал: «…если бронзовая скульптура долговечна, то живопись на эмали вечна».
+                Ремесло роскоши, волшебная техника, позволяющая создавать произведения, жизнь которых длится вечность, - так называют технику горячей эмали. Соединяя в себе ювелирную драгоценность материала со свободой живописи, этот вид искусства не имеет широкого распространения и является элитарным.
+                Эмаль — особый сплав стекла с окислами металлов. В процессе создания произведения на медную пластину специальными огнеупорными эмалевыми красками наносится роспись. В дальнейшем после нанесения каждого слоя краски пластину обжигают в печи при температуре 850°. Под воздействием высокой температуры после каждого обжига первоначальный рисунок буквально преображается на глазах, приобретая выразительную фактурность и колористическое разнообразие. Цветная эмалевая масса, растекаясь по поверхности, создает причудливую вибрацию света и цвета.Стекло, наплавленное на металл становится материалом "вечным", сохраняя всю прелесть первозданного облика на века.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Контакты</h2>
+            <p>Email: emalu@gmail.com</p>
+            <p>Телефон: +7 (911) 510-03-56</p>
+            <p>ВКонтакте: Удовикина Лариса</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Удовикина П. Д. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#">FB</a> <a href="#">IG</a> <a href="#">TW</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно для деталей товара -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeProductModal">×</span>
+            <img id="modalProductImage" src="" alt="Изображение товара">
+            <h3 id="modalProductName">Название товара</h3>
+            <p id="modalProductDescription">Описание товара...</p>
+            <p class="price" id="modalProductPrice">Цена: 0 ₽</p>
+            <button class="add-to-cart-btn" id="modalAddToCartBtn" data-id="">Добавить в корзину</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно корзины -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeCartModal">×</span>
+            <h2>Ваша корзина</h2>
+            <div id="cartItemsContainer">
+                <!-- Товары в корзине -->
+            </div>
+            <p class="total"><strong>Итого:</strong> <span id="cartTotal">0</span> ₽</p>
+            <button class="checkout-button" id="proceedToCheckoutBtn">Оформить заказ</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно оформление заказа -->>
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeCheckoutModal">×</span>
+            <h2>Оформление заказа</h2>
+            <div class="checkout-summary">
+                <p><strong>Итого к оплате:</strong> <span id="checkoutModalTotal">0</span> ₽</p>
+            </div>
+            <form id="checkoutOrderForm">
+                <div class="form-group">
+                    <label for="customerName">Ваше имя:</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email:</label>
+                    <input type="email" id="customerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Телефон:</label>
+                    <input type="tel" id="customerPhone" required>
+                </div>
+                <button type="submit" class="submit-order-btn">Подтвердить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeProfileModal">×</span>
+            <h2>Личный кабинет</h2>
+
+            <div class="profile-tabs">
+                <button class="tab-button active" data-tab="profileInfo">Основная информация</button>
+                <button class="tab-button" data-tab="profileOrders">Мои заказы</button>
+                <button class="tab-button" data-tab="profilePayment">Способы оплаты</button>
+                 <button class="tab-button" data-tab="profileAddress">Адреса доставки</button>
+            </div>
+
+            <div id="profileInfo" class="profile-tab-content active">
+                <h3>Основная информация</h3>
+                <div id="profileDisplayInfo">
+                    <p><strong>ФИО:</strong> <span id="displayFullName">-</span></p>
+                    <p><strong>Дата рождения:</strong> <span id="displayBirthDate">-</span></p>
+                    <p><strong>Email:</strong> <span id="displayEmail">-</span></p>
+                    <p><strong>Телефон:</strong> <span id="displayPhone">-</span></p>
+                    <button id="editProfileBtn" class="profile-action-btn">Редактировать</button>
+                </div>
+                <form id="profileEditForm" style="display: none;">
+                    <div class="form-group">
+                        <label for="profileFullName">ФИО:</label>
+                        <input type="text" id="profileFullName" name="fullName">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileBirthDate">Дата рождения:</label>
+                        <input type="date" id="profileBirthDate" name="birthDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email:</label>
+                        <input type="email" id="profileEmail" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhone">Телефон:</label>
+                        <input type="tel" id="profilePhone" name="phone">
+                    </div>
+                    <button type="submit" class="profile-action-btn">Сохранить</button>
+                    <button type="button" id="cancelEditProfileBtn" class="profile-action-btn secondary">Отмена</button>
+                </form>
+            </div>
+
+            <div id="profileOrders" class="profile-tab-content">
+                <h3>Мои заказы</h3>
+                <div id="profileOrdersContainer">
+                    <!-- Заказы будут рендериться здесь -->
+                </div>
+            </div>
+
+            <div id="profilePayment" class="profile-tab-content">
+                <h3>Способы оплаты</h3>
+                <div id="paymentMethodsList">
+                    <!-- Сохраненные способы оплаты будут здесь -->
+                    <p>У вас нет сохраненных способов оплаты.</p> 
+                </div>
+                <button id="showAddPaymentFormBtn" class="profile-action-btn small-btn">Добавить способ оплаты</button>
+                <form id="addPaymentForm" style="display: none;" class="sub-form">
+                    <h4>Новый способ оплаты</h4>
+                    <div class="form-group">
+                        <label for="paymentType">Тип карты:</label>
+                        <select id="paymentType" name="paymentType">
+                            <option value="Visa">Visa</option>
+                            <option value="Mastercard">Mastercard</option>
+                            <option value="Mir">МИР</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Номер карты (последние 4 цифры):</label>
+                        <input type="text" id="cardNumber" name="cardNumber" pattern="\d{4}" title="Введите 4 цифры" maxlength="4" required placeholder="1234">
+                    </div>
+                    <div class="form-group">
+                        <label for="cardExpiry">Срок действия (ММ/ГГ):</label>
+                        <input type="text" id="cardExpiry" name="cardExpiry" placeholder="ММ/ГГ" pattern="(0[1-9]|1[0-2])\/\d{2}" title="Формат ММ/ГГ" required>
+                    </div>
+                    <button type="submit" class="profile-action-btn">Сохранить карту</button>
+                    <button type="button" id="cancelAddPaymentBtn" class="profile-action-btn secondary">Отмена</button>
+                </form>
+            </div>
+            
+            <div id="profileAddress" class="profile-tab-content">
+                <h3>Адреса доставки</h3>
+                <div id="addressList">
+                    <!-- Сохраненные адреса будут здесь -->
+                    <p>У вас нет сохраненных адресов.</p>
+                </div>
+                <button id="showAddAddressFormBtn" class="profile-action-btn small-btn">Добавить адрес</button>
+                <form id="addAddressForm" style="display: none;" class="sub-form">
+                    <h4>Новый адрес доставки</h4>
+                    <div class="form-group">
+                        <label for="addressStreet">Улица, дом, квартира:</label>
+                        <input type="text" id="addressStreet" name="street" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addressCity">Город:</label>
+                        <input type="text" id="addressCity" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addressZip">Почтовый индекс:</label>
+                        <input type="text" id="addressZip" name="zip" pattern="\d{6}" title="6-значный индекс" maxlength="6" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addressLabel">Метка адреса (напр. Дом, Работа):</label>
+                        <input type="text" id="addressLabel" name="label" placeholder="Дом">
+                    </div>
+                    <button type="submit" class="profile-action-btn">Сохранить адрес</button>
+                    <button type="button" id="cancelAddAddressBtn" class="profile-action-btn secondary">Отмена</button>
+                </form>
+            </div>
+        </div>
+    </div> 
+
+    <!-- Аутентификация -->
+    <script src="Сайт.JS"></script>
+</body>
+</html>
